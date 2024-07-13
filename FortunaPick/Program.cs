@@ -227,18 +227,16 @@
         {
             ConsoleColor OrginalConsoleColour = Console.ForegroundColor;
             var ProgramName = """
-                
-           ▄████████  ▄██████▄     ▄████████     ███     ███    █▄  ███▄▄▄▄      ▄████████    ▄███████▄  ▄█   ▄████████    ▄█   ▄█▄ 
-          ███    ███ ███    ███   ███    ███ ▀█████████▄ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███  ███    ███   ███ ▄███▀ 
-          ███    █▀  ███    ███   ███    ███    ▀███▀▀██ ███    ███ ███   ███   ███    ███   ███    ███ ███▌ ███    █▀    ███▐██▀   
-         ▄███▄▄▄     ███    ███  ▄███▄▄▄▄██▀     ███   ▀ ███    ███ ███   ███   ███    ███   ███    ███ ███▌ ███         ▄█████▀    
-        ▀▀███▀▀▀     ███    ███ ▀▀███▀▀▀▀▀       ███     ███    ███ ███   ███ ▀███████████ ▀█████████▀  ███▌ ███        ▀▀█████▄    
-          ███        ███    ███ ▀███████████     ███     ███    ███ ███   ███   ███    ███   ███        ███  ███    █▄    ███▐██▄   
-          ███        ███    ███   ███    ███     ███     ███    ███ ███   ███   ███    ███   ███        ███  ███    ███   ███ ▀███▄ 
-          ███         ▀██████▀    ███    ███    ▄████▀   ████████▀   ▀█   █▀    ███    █▀   ▄████▀      █▀   ████████▀    ███   ▀█▀ 
-                                  ███    ███                                                                              ▀         
+         /$$$$$$$$                    /$$                                   /$$$$$$$  /$$           /$$      
+        | $$_____/                   | $$                                  | $$__  $$|__/          | $$      
+        | $$     /$$$$$$   /$$$$$$  /$$$$$$   /$$   /$$ /$$$$$$$   /$$$$$$ | $$  \ $$ /$$  /$$$$$$$| $$   /$$
+        | $$$$$ /$$__  $$ /$$__  $$|_  $$_/  | $$  | $$| $$__  $$ |____  $$| $$$$$$$/| $$ /$$_____/| $$  /$$/
+        | $$__/| $$  \ $$| $$  \__/  | $$    | $$  | $$| $$  \ $$  /$$$$$$$| $$____/ | $$| $$      | $$$$$$/ 
+        | $$   | $$  | $$| $$        | $$ /$$| $$  | $$| $$  | $$ /$$__  $$| $$      | $$| $$      | $$_  $$ 
+        | $$   |  $$$$$$/| $$        |  $$$$/|  $$$$$$/| $$  | $$|  $$$$$$$| $$      | $$|  $$$$$$$| $$ \  $$
+        |__/    \______/ |__/         \___/   \______/ |__/  |__/ \_______/|__/      |__/ \_______/|__/  \__/                                                                                               
         """;
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(ProgramName);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\t\t\tNational Lottory Number Generator - Version 1.0.0 - Matthew Lewis 2024\r\n");
@@ -291,7 +289,7 @@
                             break;
                         }
                         DisplayLottoLines(userNumberOfLines);
-                        Console.Write("\nPress return to continue");
+                        Console.Write("\nPress Enter to return to Menu");
                         Console.ReadLine();
                         Console.Clear();
                         WelcomeMessage();
@@ -310,7 +308,7 @@
                             break;
                         }
                         DisplayThunderLines(userNumberOfLines);
-                        Console.Write("\nPress return to continue");
+                        Console.Write("\nPress Enter to return to Menu");
                         Console.ReadLine();
                         Console.Clear();
                         WelcomeMessage();
@@ -329,7 +327,7 @@
                             break;
                         }
                         DisplayEuroMillionLines(userNumberOfLines);
-                        Console.Write("\nPress return to continue");
+                        Console.Write("\nPress Enter to return to Menu");
                         Console.ReadLine();
                         Console.Clear();
                         WelcomeMessage();
@@ -348,7 +346,18 @@
                             break;
                         }
                         DisplaySetForLifeLines(userNumberOfLines);
-                        Console.Write("\nPress return to continue");
+                        Console.Write("\nPress Enter to return to Menu");
+                        Console.ReadLine();
+                        Console.Clear();
+                        WelcomeMessage();
+                        ShowMenu();
+                        break;
+                    case 'a':
+                    case 'A':
+                        Console.Clear();
+                        WelcomeMessage();
+                        // To do
+                        Console.Write("\nPress Enter to return to Menu");
                         Console.ReadLine();
                         Console.Clear();
                         WelcomeMessage();

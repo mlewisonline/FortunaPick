@@ -243,6 +243,30 @@
             Console.ForegroundColor = OrginalConsoleColour;
         }
 
+        static void AboutScreen()
+        {
+            const string about = """
+                FortunaPick: Your Lottery Number Ally
+
+                Are you tired of staring at your lottery ticket, wondering which numbers to choose? Look no further—FortunaPick is here 
+                to lend a hand! Whether you’re eyeing the UK Lotto, EuroMillions, or Thunderball, this nifty tool can help you make picks. 
+                
+                Here’s how:
+
+                Smart Randomization:
+                FortunaPick uses clever algorithms to generate random numbers. 
+                It’s like having a lucky leprechaun whispering in your ear (minus the green hat).
+               
+                Remember, FortunaPick doesn’t guarantee a jackpot (if it did, I’d be on a tropical island right now). 
+                But it adds a sprinkle of fun and strategy to your lottery adventures. 
+                So go ahead, roll those digital dice, and may the odds be ever in your favour!
+
+                Feel free to give FortunaPick a whirl—it’s like having a lucky rabbit’s foot without the fur! 
+                Remeber me if you win the big prize $$$.
+                """;
+            Console.WriteLine(about);
+        }
+
         static void ShowMenu()
         {
             ConsoleColor OrginalConsoleColour = Console.ForegroundColor;
@@ -356,7 +380,7 @@
                     case 'A':
                         Console.Clear();
                         WelcomeMessage();
-                        // To do
+                        AboutScreen();
                         Console.Write("\nPress Enter to return to Menu");
                         Console.ReadLine();
                         Console.Clear();

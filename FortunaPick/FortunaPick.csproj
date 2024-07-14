@@ -15,4 +15,42 @@
 		<Copyright>Matthew Lewis 2024</Copyright>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <None Remove="GameStats\euromillion-main-stats.json" />
+	  <None Remove="GameStats\euromillion-star-stats.json" />
+	  <None Remove="GameStats\lotto-main-stats.json" />
+	  <None Remove="GameStats\setforlife-lifeball-stats.json" />
+	  <None Remove="GameStats\setforlife-main-stats.json" />
+	  <None Remove="GameStats\thunderball-main-stats.json" />
+	  <None Remove="GameStats\thunderball-thunderball-stats.json" />
+	  <None Remove="GameStats\UpdateInformation.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="GameStats\euromillion-main-stats.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="GameStats\euromillion-star-stats.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="GameStats\lotto-main-stats.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="GameStats\setforlife-lifeball-stats.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="GameStats\setforlife-main-stats.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="GameStats\thunderball-main-stats.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="GameStats\thunderball-thunderball-stats.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="GameStats\UpdateInformation.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
 </Project>

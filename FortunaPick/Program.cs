@@ -1,4 +1,8 @@
-﻿namespace FortunaPick
+﻿using System.Net.NetworkInformation;
+using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace FortunaPick
 {
     internal class Program
     {
@@ -289,7 +293,7 @@
             ConsoleColor OrginalConsoleColour = Console.ForegroundColor;
             WelcomeMessage();
             ShowMenu();
-
+            Statistics.LoadStatistics();
             char userInput;
             do
             {

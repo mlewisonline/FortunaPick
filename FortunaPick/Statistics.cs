@@ -26,6 +26,11 @@ namespace FortunaPick
         public Dictionary<int, int> LifeBalls { get; } = lifeBalls;
     }
 
+    public class HotSix(Dictionary<int, int> balls)
+    {
+        public Dictionary<int, int> Balls { get; } = balls;
+    }
+
     public class Statistics
     {
         public Lotto Lotto { get; }
@@ -44,7 +49,20 @@ namespace FortunaPick
 
         public SetForLife SetForLifeSorted { get; }
 
-        public Dictionary<int, int> LottoHotSix { get; }
+        public HotSix LottoHotSix { get; }
+
+        public HotSix ThunderBallMainHotSix { get; }
+
+        public HotSix ThunderBallHotSix { get; }
+
+        public HotSix EuroMillionsHotSix { get; }
+        public HotSix EuroMillionsStarsHotSix { get; }
+
+        public HotSix SetForLifeHotSix { get; }
+        public HotSix LifeBallHotSix { get; }
+
+        public string Updated {  get; }
+
         public Statistics()
         {
             // Initialize Statistics Properties
@@ -73,7 +91,18 @@ namespace FortunaPick
 
 
             // Initialize Hot 6 Statistics Properties
-            LottoHotSix = LottoSorted.MainBalls.Take(6).ToDictionary();
+            LottoHotSix = new (LottoSorted.MainBalls.Take(6).ToDictionary());
+
+            ThunderBallMainHotSix = new(ThunderBallSorted.MainBalls.Take(6).ToDictionary());
+            ThunderBallHotSix = new(ThunderBallSorted.Thunderballs.Take(6).ToDictionary());
+
+            EuroMillionsHotSix = new(EuroMillionsSorted.MainBalls.Take(6).ToDictionary());
+            EuroMillionsStarsHotSix = new(EuroMillionsSorted.Stars.Take(6).ToDictionary());
+
+            SetForLifeHotSix = new(SetForLifeSorted.MainBalls.Take(6).ToDictionary());
+            LifeBallHotSix = new(SetForLifeSorted.LifeBalls.Take(6).ToDictionary());
+
+            Updated = DateOnly.FromDateTime(DateTime.Now).ToString();
         }
 
 

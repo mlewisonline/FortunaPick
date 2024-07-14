@@ -290,7 +290,6 @@
             WelcomeMessage();
             ShowMenu();
             Statistics statistics = new Statistics();
-            var t = statistics.EuroMillionsSorted;
             char userInput;
             do
             {

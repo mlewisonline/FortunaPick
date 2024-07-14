@@ -1,8 +1,4 @@
-﻿using System.Net.NetworkInformation;
-using System.Text.Json;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace FortunaPick
+﻿namespace FortunaPick
 {
     internal class Program
     {
@@ -293,7 +289,8 @@ namespace FortunaPick
             ConsoleColor OrginalConsoleColour = Console.ForegroundColor;
             WelcomeMessage();
             ShowMenu();
-            Statistics.LoadStatistics();
+            Statistics statistics = new Statistics();
+            var t = statistics.EuroMillionsSorted;
             char userInput;
             do
             {

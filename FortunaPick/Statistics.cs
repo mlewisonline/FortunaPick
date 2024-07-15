@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace FortunaPick
 {
@@ -108,12 +109,17 @@ namespace FortunaPick
 
         private static Dictionary<int, int> LoadGameStatsFile(string file)
         {
+
             if(File.Exists(file))
             { 
-               var json = File.ReadAllText(file);
-               return JsonConvert.DeserializeObject<Dictionary<int, int>>(json);           
+               string json = File.ReadAllText(file);
+
+                if (json != null)
+                {
+                    return JsonSerializer.Deserialize<Dictionary<int, int>>(json);
+                }
             }
-            return [];     
+            return new Dictionary<int, int>();    
         }
 
 

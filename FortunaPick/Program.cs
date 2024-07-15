@@ -289,7 +289,8 @@
             ConsoleColor OrginalConsoleColour = Console.ForegroundColor;
             WelcomeMessage();
             ShowMenu();
-            Statistics statistics = new Statistics();
+            Statistics statistics = new();
+           
             char userInput;
             do
             {

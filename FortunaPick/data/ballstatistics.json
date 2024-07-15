@@ -1,6 +1,6 @@
 {
   "data_set": "full",
-  "lotto_updated": "15/07/2024",
+  "data_updated": "15/07/2024",
   "lotto_main_balls": {
     "1": 87,
     "2": 84,
@@ -62,8 +62,7 @@
     "58": 110,
     "59": 96
   },
-  "thunderball_updated": "15/07/2024",
-  "thunderballs_main_balls": {
+  "thunderball_main_balls": {
     "1": 325,
     "2": 323,
     "3": 319,
@@ -120,7 +119,6 @@
     "13": 200,
     "14": 190
   },
-  "euromillion_updated": "15/07/2024",
   "euromillion_main_balls": {
     "1": 71,
     "2": 87,
@@ -187,7 +185,6 @@
     "11": 138,
     "12": 136
   },
-  "setforlife_updated": "15/07/2024",
   "setforlife_main_balls": {
     "1": 45,
     "2": 55,

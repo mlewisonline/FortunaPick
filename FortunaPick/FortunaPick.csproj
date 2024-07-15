@@ -16,23 +16,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="GameStats\euromillions.json" />
-	  <None Remove="GameStats\lotto.json" />
-	  <None Remove="GameStats\setforlife.json" />
-	  <None Remove="GameStats\thunderball.json" />
+	  <None Remove="data\ballstatistics.json" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="GameStats\euromillions.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="GameStats\lotto.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="GameStats\setforlife.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="GameStats\thunderball.json">
+	  <Content Include="data\ballstatistics.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>

@@ -16,39 +16,23 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="GameStats\euromillion-main-stats.json" />
-	  <None Remove="GameStats\euromillion-star-stats.json" />
-	  <None Remove="GameStats\lotto-main-stats.json" />
-	  <None Remove="GameStats\setforlife-lifeball-stats.json" />
-	  <None Remove="GameStats\setforlife-main-stats.json" />
-	  <None Remove="GameStats\thunderball-main-stats.json" />
-	  <None Remove="GameStats\thunderball-thunderball-stats.json" />
-	  <None Remove="GameStats\UpdateInformation.txt" />
+	  <None Remove="GameStats\euromillions.json" />
+	  <None Remove="GameStats\lotto.json" />
+	  <None Remove="GameStats\setforlife.json" />
+	  <None Remove="GameStats\thunderball.json" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="GameStats\euromillion-main-stats.json">
+	  <Content Include="GameStats\euromillions.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="GameStats\euromillion-star-stats.json">
+	  <Content Include="GameStats\lotto.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="GameStats\lotto-main-stats.json">
+	  <Content Include="GameStats\setforlife.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="GameStats\setforlife-lifeball-stats.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="GameStats\setforlife-main-stats.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="GameStats\thunderball-main-stats.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="GameStats\thunderball-thunderball-stats.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="GameStats\UpdateInformation.txt">
+	  <Content Include="GameStats\thunderball.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>

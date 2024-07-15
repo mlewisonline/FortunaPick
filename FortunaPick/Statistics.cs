@@ -1,134 +1,81 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace FortunaPick
 {
-    public class Lotto(Dictionary<int, int> mainBalls)
-    {
-        public Dictionary<int, int> MainBalls { get; } = mainBalls;
-
-    }
-
-    public class EuroMillions(Dictionary<int, int> mainBalls, Dictionary<int, int> stars)
-    {
-        public Dictionary<int, int> MainBalls { get; } = mainBalls;
-        public Dictionary<int, int> Stars { get; } = stars;
-    }
-
-    public class ThunderBall(Dictionary<int, int> mainBalls, Dictionary<int, int> thunderBalls)
-    {
-        public Dictionary<int, int> MainBalls { get; } = mainBalls;
-        public Dictionary<int, int> Thunderballs { get; } = thunderBalls;
-    }
-
-    public class SetForLife(Dictionary<int, int> mainBalls, Dictionary<int, int> lifeBalls)
-    {
-        public Dictionary<int, int> MainBalls { get; } = mainBalls;
-        public Dictionary<int, int> LifeBalls { get; } = lifeBalls;
-    }
-
-    public class HotSix(Dictionary<int, int> balls)
-    {
-        public Dictionary<int, int> Balls { get; } = balls;
-    }
-
     public class Statistics
     {
-        public Lotto Lotto { get; }
+        public Lotto? LottoData { get; }
+        public ThunderBall? ThunderBallData { get; }
+        public EuroMillions? EuroMillionsData { get; }
+        public SetForLife? SetforLifeData { get; }
 
-        public ThunderBall ThunderBall { get; }
-
-        public EuroMillions EuroMillions { get; }
-
-        public SetForLife SetForLife { get;}
-
-        public Lotto LottoSorted { get; }
-
-        public ThunderBall ThunderBallSorted { get; }
-
-        public EuroMillions EuroMillionsSorted { get; }
-
-        public SetForLife SetForLifeSorted { get; }
-
-        public HotSix LottoHotSix { get; }
-
-        public HotSix ThunderBallMainHotSix { get; }
-
-        public HotSix ThunderBallHotSix { get; }
-
-        public HotSix EuroMillionsHotSix { get; }
-        public HotSix EuroMillionsStarsHotSix { get; }
-
-        public HotSix SetForLifeHotSix { get; }
-        public HotSix LifeBallHotSix { get; }
-
-        public string Updated {  get; }
 
         public Statistics()
         {
-            // Initialize Statistics Properties
-            Lotto = new (LoadGameStatsFile(@"gamestats\lotto-main-stats.json"));
+            // Load Main Game Data Statistics
+            LottoData = LoadGameData<Lotto>(LottoData, @"gamestats\lotto.json");
+            ThunderBallData = LoadGameData<ThunderBall>(ThunderBallData,@"gamestats\thunderball.json");
+            EuroMillionsData = LoadGameData<EuroMillions>(EuroMillionsData,@"gamestats\euromillions.json");
+            SetforLifeData = LoadGameData<SetForLife>(SetforLifeData,@"gamestats\setforlife.json");
 
-            ThunderBall = new (LoadGameStatsFile(@"gamestats\thunderball-main-stats.json"),
-                               LoadGameStatsFile(@"gamestats\thunderball-thunderball-stats.json"));
+            // Build the Statistics for use
+            LottoData.MainballsSorted = SortStatisticsDescending(LottoData.Mainballs);
+            LottoData.MainBallHotSix = LottoData.MainballsSorted.Take(6).ToDictionary();
+            LottoData.MainBallColdSix = SortStatisticsAscending(LottoData.MainballsSorted).Take(6).ToDictionary();
 
-            EuroMillions = new (LoadGameStatsFile(@"gamestats\euromillion-main-stats.json"),
-                                LoadGameStatsFile(@"gamestats\euromillion-star-stats.json"));
+            ThunderBallData.MainballsSorted = SortStatisticsDescending(ThunderBallData.Mainballs);
+            ThunderBallData.MainBallHotSix = ThunderBallData.MainballsSorted.Take(6).ToDictionary();
+            ThunderBallData.MainBallColdSix = SortStatisticsAscending(ThunderBallData.MainballsSorted).Take(6).ToDictionary();
 
-            SetForLife = new(LoadGameStatsFile(@"gamestats\setforlife-main-stats.json"),
-                             LoadGameStatsFile(@"gamestats\setforlife-lifeball-stats.json"));
+            ThunderBallData.ThunderballSorted = SortStatisticsDescending(ThunderBallData.Thunderball);
+            ThunderBallData.ThunderballHotSix = ThunderBallData.ThunderballSorted.Take(6).ToDictionary();
+            ThunderBallData.ThunderballColdSix = SortStatisticsAscending(ThunderBallData.ThunderballSorted).Take(6).ToDictionary();
 
-            // Initialize Sorted Statistics Properties
-            LottoSorted = new (SortStatistics(Lotto.MainBalls));
+            EuroMillionsData.MainballsSorted = SortStatisticsDescending(EuroMillionsData.Mainballs);
+            EuroMillionsData.MainBallHotSix = EuroMillionsData.MainballsSorted.Take(6).ToDictionary();
+            EuroMillionsData.MainBallColdSix = SortStatisticsAscending(EuroMillionsData.MainballsSorted).Take(6).ToDictionary();
 
-            ThunderBallSorted = new(SortStatistics(ThunderBall.MainBalls),
-                                    SortStatistics(ThunderBall.Thunderballs));
+            EuroMillionsData.StarsSorted = SortStatisticsDescending(EuroMillionsData.Stars);
+            EuroMillionsData.StarsHotSix = EuroMillionsData.StarsSorted.Take(6).ToDictionary();
+            EuroMillionsData.StarsColdSix = SortStatisticsAscending(EuroMillionsData.StarsSorted).Take(6).ToDictionary();
 
-            EuroMillionsSorted = new(SortStatistics(EuroMillions.MainBalls),
-                                     SortStatistics(EuroMillions.Stars));
+            SetforLifeData.MainballsSorted = SortStatisticsDescending(SetforLifeData.Mainballs);
+            SetforLifeData.MainBallHotSix = SetforLifeData.MainballsSorted.Take(6).ToDictionary();
+            SetforLifeData.MainBallColdSix = SortStatisticsAscending(SetforLifeData.MainballsSorted).Take(6).ToDictionary();
 
-            SetForLifeSorted = new(SortStatistics(SetForLife.MainBalls),
-                                   SortStatistics(SetForLife.LifeBalls));
-
-
-            // Initialize Hot 6 Statistics Properties
-            LottoHotSix = new (LottoSorted.MainBalls.Take(6).ToDictionary());
-
-            ThunderBallMainHotSix = new(ThunderBallSorted.MainBalls.Take(6).ToDictionary());
-            ThunderBallHotSix = new(ThunderBallSorted.Thunderballs.Take(6).ToDictionary());
-
-            EuroMillionsHotSix = new(EuroMillionsSorted.MainBalls.Take(6).ToDictionary());
-            EuroMillionsStarsHotSix = new(EuroMillionsSorted.Stars.Take(6).ToDictionary());
-
-            SetForLifeHotSix = new(SetForLifeSorted.MainBalls.Take(6).ToDictionary());
-            LifeBallHotSix = new(SetForLifeSorted.LifeBalls.Take(6).ToDictionary());
-
-            Updated = DateOnly.FromDateTime(DateTime.Now).ToString();
+            SetforLifeData.LifeballSorted = SortStatisticsDescending(SetforLifeData.Lifeball);
+            SetforLifeData.LifeballHotSix = SetforLifeData.LifeballSorted.Take(6).ToDictionary();
+            SetforLifeData.LifeballColdSix = SortStatisticsAscending(SetforLifeData.LifeballSorted).Take(6).ToDictionary();
         }
 
 
-        private static Dictionary<int, int> LoadGameStatsFile(string file)
+        private static T LoadGameData<T>(T? output_object, string fileName)
         {
-
-            if(File.Exists(file))
-            { 
-               string json = File.ReadAllText(file);
+            if (File.Exists(fileName))
+            {
+                string json = File.ReadAllText(fileName);
 
                 if (json != null)
                 {
-                    return JsonSerializer.Deserialize<Dictionary<int, int>>(json);
+                     return JsonSerializer.Deserialize<T>(json);
                 }
             }
-            return new Dictionary<int, int>();    
+            return output_object;
         }
+      
 
-
-        private static Dictionary<int, int> SortStatistics(Dictionary<int, int> dataToSort)
+        private static Dictionary<int, int> SortStatisticsDescending(Dictionary<int, int>? dataToSort)
         {
             return (from keyValuePair in dataToSort
                     orderby keyValuePair.Value descending
                     select keyValuePair).ToDictionary();
         }
 
+        private static Dictionary<int, int> SortStatisticsAscending(Dictionary<int, int>? dataToSort)
+        {
+            return (from keyValuePair in dataToSort
+                    orderby keyValuePair.Value ascending
+                    select keyValuePair).ToDictionary();
+        }
     }
 }

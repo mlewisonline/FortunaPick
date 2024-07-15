@@ -1,4 +1,7 @@
-﻿namespace FortunaPick
+﻿using System.Security.AccessControl;
+using System.Text.Json;
+
+namespace FortunaPick
 {
     internal class Program
     {
@@ -289,8 +292,8 @@
             ConsoleColor OrginalConsoleColour = Console.ForegroundColor;
             WelcomeMessage();
             ShowMenu();
-            Statistics statistics = new();
-           
+           Statistics statistics = new Statistics();
+
             char userInput;
             do
             {

@@ -10,7 +10,8 @@ namespace FortunaPick
         {
             // Load ball Statistics
             BallStatistics = LoadData(fileName: @"data\ballstatistics.json");
-            // Create sorted data
+
+            // Initialize Sorted Data
             BallStatistics.LottoMainBallsSorted = SortStatisticsDescending(BallStatistics.LottoMainBalls);
             BallStatistics.EuromillionsMainBallsSorted = SortStatisticsDescending(BallStatistics.EuromillionsMainBalls);
             BallStatistics.EuromillionsStarsSorted = SortStatisticsDescending(BallStatistics.EuromillionsStars);
@@ -18,7 +19,7 @@ namespace FortunaPick
             BallStatistics.SetforlifeLifeballsSorted = SortStatisticsDescending(BallStatistics.SetforlifeLifeballs);
             BallStatistics.ThunderballMainBallsSorted = SortStatisticsDescending(BallStatistics.ThunderballMainBalls);
             BallStatistics.ThunderballsSorted = SortStatisticsDescending(BallStatistics.Thunderballs);
-            // initailise hot and cold
+            // Initialize Hot Six
             BallStatistics.LottoHotSix = BallStatistics.LottoMainBallsSorted.Take(6).ToDictionary();
             BallStatistics.EuromillionsMainHotSix = BallStatistics.EuromillionsMainBallsSorted.Take(6).ToDictionary();
             BallStatistics.EuromillionsStarsHotSix = BallStatistics.EuromillionsStarsSorted.Take(6).ToDictionary();
@@ -26,6 +27,14 @@ namespace FortunaPick
             BallStatistics.SetforlifeLifeballsHotSix = BallStatistics.SetforlifeLifeballsSorted.Take(6).ToDictionary();
             BallStatistics.ThunderballMainHotSix = BallStatistics.ThunderballMainBallsSorted.Take(6).ToDictionary();
             BallStatistics.ThunderballsHotSix = BallStatistics.ThunderballsSorted.Take(6).ToDictionary();
+            // Initialize Cold Six
+            BallStatistics.LottoColdSix = SortStatisticsAscending(BallStatistics.LottoMainBallsSorted).Take(6).ToDictionary();
+            BallStatistics.EuromillionsMainColdSix = SortStatisticsAscending(BallStatistics.EuromillionsMainBallsSorted).Take(6).ToDictionary();
+            BallStatistics.EuromillionsStarsColdSix = SortStatisticsAscending(BallStatistics.EuromillionsStarsSorted).Take(6).ToDictionary();
+            BallStatistics.SetforlifeMainColdSix = SortStatisticsAscending(BallStatistics.SetforlifeMainBallsSorted).Take(6).ToDictionary();
+            BallStatistics.SetforlifeLifeballsColdSix = SortStatisticsAscending(BallStatistics.SetforlifeLifeballsSorted).Take(6).ToDictionary();
+            BallStatistics.ThunderballMainColdSix = SortStatisticsAscending(BallStatistics.ThunderballMainBallsSorted).Take(6).ToDictionary();
+            BallStatistics.ThunderballsColdSix = SortStatisticsAscending(BallStatistics.ThunderballsSorted).Take(6).ToDictionary();
 
         }
 

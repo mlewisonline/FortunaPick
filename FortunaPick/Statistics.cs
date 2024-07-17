@@ -6,8 +6,6 @@ namespace FortunaPick
     {
         public BallStatisticsModel? BallStatistics { get; }
 
-        public List<LottoResults>? LottoResults { get; }
-
         public Statistics()
         {
             // Load ball Statistics
@@ -38,7 +36,7 @@ namespace FortunaPick
             BallStatistics.ThunderballMainColdSix = SortStatisticsAscending(BallStatistics.ThunderballMainBallsSorted).Take(6).ToDictionary();
             BallStatistics.ThunderballsColdSix = SortStatisticsAscending(BallStatistics.ThunderballsSorted).Take(6).ToDictionary();
 
-            GameResultDataBuilder.GetOrUpdateResultsJson();
+           // GameResultDataBuilder.GetOrUpdateResultsJson();
             
 
 

@@ -1,4 +1,5 @@
-﻿using System.Security.AccessControl;
+﻿using System.Formats.Asn1;
+using System.Security.AccessControl;
 using System.Text.Json;
 
 namespace FortunaPick
@@ -289,10 +290,13 @@ namespace FortunaPick
         }
         static void Main(string[] args)
         {
+            DrawResults drawresults = new DrawResults();
+            Statistics statistics = new Statistics();
+
             ConsoleColor OrginalConsoleColour = Console.ForegroundColor;
             WelcomeMessage();
             ShowMenu();
-            Statistics statistics = new Statistics();
+            
           
 
 

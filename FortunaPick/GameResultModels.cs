@@ -1,6 +1,6 @@
 ﻿namespace FortunaPick
 {
-    public class LottoResults(string game, DateOnly date, int ball1, int ball2, int ball3, int ball4, int ball5, int ball6, int bonusball) : IGameResults
+    public class LottoResult(string game, DateOnly date, int ball1, int ball2, int ball3, int ball4, int ball5, int ball6, int bonusball)
     {
         public string? Game { get; } = game;
         public DateOnly? Date { get; } = date;
@@ -13,7 +13,7 @@
         public int? BonusBall { get; } = bonusball;
     }
 
-    public class ThunderBallResults(string game, DateOnly date, int ball1, int ball2, int ball3, int ball4, int ball5, int thunderball) : IGameResults
+    public class ThunderBallResult(string game, DateOnly date, int ball1, int ball2, int ball3, int ball4, int ball5, int thunderball)
     {
         public string? Game { get; } = game;
         public DateOnly? Date { get; } = date;
@@ -25,7 +25,7 @@
         public int? ThunderBall { get; } = thunderball;
     }
 
-    public class EuroMillionsResults (string game, DateOnly date, int ball1, int ball2, int ball3, int ball4, int ball5, int star1, int star2, string ticket) : IGameResults
+    public class EuroMillionsResult (string game, DateOnly date, int ball1, int ball2, int ball3, int ball4, int ball5, int star1, int star2, string ticket)
     {
         public string? Game { get; } = game;
         public DateOnly? Date { get; } = date;
@@ -39,7 +39,7 @@
         public string? Ticket { get; } = ticket;
     }
 
-    public class SetforlifeResults(string game, DateOnly date, int ball1, int ball2, int ball3, int ball4, int ball5, int lifeball) : IGameResults
+    public class SetForLifeResult(string game, DateOnly date, int ball1, int ball2, int ball3, int ball4, int ball5, int lifeball)
     {
         public string? Game { get; } = game;
         public DateOnly? Date { get; } = date;

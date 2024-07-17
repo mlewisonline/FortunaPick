@@ -6,6 +6,8 @@ namespace FortunaPick
     {
         public BallStatisticsModel? BallStatistics { get; }
 
+        public List<LottoResults>? LottoResults { get; }
+
         public Statistics()
         {
             // Load ball Statistics
@@ -36,6 +38,12 @@ namespace FortunaPick
             BallStatistics.ThunderballMainColdSix = SortStatisticsAscending(BallStatistics.ThunderballMainBallsSorted).Take(6).ToDictionary();
             BallStatistics.ThunderballsColdSix = SortStatisticsAscending(BallStatistics.ThunderballsSorted).Take(6).ToDictionary();
 
+            GameResultDataBuilder.GetOrUpdateResultsJson();
+            
+
+
+
+
         }
 
         private static BallStatisticsModel LoadData(string fileName)
@@ -52,6 +60,8 @@ namespace FortunaPick
             return new BallStatisticsModel();
         }
 
+
+
         private static Dictionary<int, int> SortStatisticsDescending(Dictionary<int, int>? dataToSort)
         {
             return (from keyValuePair in dataToSort
@@ -65,5 +75,8 @@ namespace FortunaPick
                     orderby keyValuePair.Value ascending
                     select keyValuePair).ToDictionary();
         }
+
+
+       
     }
 }

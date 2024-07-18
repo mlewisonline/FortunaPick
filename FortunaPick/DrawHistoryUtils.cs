@@ -1,11 +1,12 @@
 ﻿using System.Diagnostics;
+using System.Net;
 using System.Text.Json;
 
 namespace FortunaPick
 {
     internal class DrawHistoryUtils
     {
-        public static async Task DownloadCSV(string url, string filename)
+        public static async Task DownloadCSVAsync(string url, string filename)
         {
             using var httpClient = new HttpClient();
             try
@@ -24,7 +25,23 @@ namespace FortunaPick
         }
 
 
-        public static List<LottoResult> CSV2LottoResultsList(string filename)
+        public static void DownloadCSV(string url, string filename)
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    client.DownloadFile(url, filename);
+                    Debug.WriteLine($"File downloaded successfully to {filename}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error downloading file: {ex.Message}");
+            }
+        }
+
+        public static List<LottoResult> CSV2LottoResultsList(string filename) 
         {
             List<LottoResult> list = [];
             var csvLines = File.ReadAllLines(filename);

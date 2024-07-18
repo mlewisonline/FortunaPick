@@ -9,7 +9,7 @@ namespace FortunaPick
         public Statistics()
         {
             // Load ball Statistics
-            BallStatistics = LoadData(fileName: @"data\ballstatistics.json");
+            BallStatistics = LoadData(fileName: $"data{Path.DirectorySeparatorChar}ballstatistics.json");
 
             // Initialize Sorted Data
             BallStatistics.LottoMainBallsSorted = SortStatisticsDescending(BallStatistics.LottoMainBalls);

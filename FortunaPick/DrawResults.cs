@@ -4,10 +4,10 @@ namespace FortunaPick
 {
     public class DrawResults
     {
-        private readonly string lottoHistoryPath = "data\\lotto-history.csv";
-        private readonly string thunderballistoryPath = "data\\thunderball-history.csv";
-        private readonly string euromillionHistoryPath = "data\\euromillion-history.csv";
-        private readonly string setforlifeHistoryPath = "data\\setforlife-history.csv";
+        private readonly string lottoHistoryPath = $"data{Path.DirectorySeparatorChar}lotto-history.csv";
+        private readonly string thunderballistoryPath = $"data{Path.DirectorySeparatorChar}thunderball-history.csv";
+        private readonly string euromillionHistoryPath = $"data{Path.DirectorySeparatorChar}euromillion-history.csv";
+        private readonly string setforlifeHistoryPath = $"data{Path.DirectorySeparatorChar}setforlife-history.csv";
         private readonly string baseURL = "https://www.national-lottery.co.uk/results/";
         public List<LottoResult>? LottoResults { get; set; }
         public List<ThunderBallResult>? ThunderBallResults { get; set; }

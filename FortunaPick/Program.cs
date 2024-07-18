@@ -1,8 +1,4 @@
-﻿using System.Formats.Asn1;
-using System.Security.AccessControl;
-using System.Text.Json;
-
-namespace FortunaPick
+﻿namespace FortunaPick
 {
     internal class Program
     {
@@ -292,7 +288,7 @@ namespace FortunaPick
         {
             DrawResults drawresults = new DrawResults();
             Statistics statistics = new Statistics();
-
+            
             ConsoleColor OrginalConsoleColour = Console.ForegroundColor;
             WelcomeMessage();
             ShowMenu();
@@ -314,6 +310,8 @@ namespace FortunaPick
                     case 'L':
                         Console.Clear();
                         WelcomeMessage();
+                        Console.WriteLine($"\t\t\t\t\tTHE LASTEST DRAW RESULTS ARE ");
+                        Console.WriteLine($"\t\t\t\t{drawresults.LottoResults[0]}\r\n");
                         Console.Write("How many Lottory lines do you want? -> ");
                         if (!int.TryParse(Console.ReadLine(), out userNumberOfLines))
                         {
@@ -333,6 +331,8 @@ namespace FortunaPick
                     case 'T':
                         Console.Clear();
                         WelcomeMessage();
+                        Console.WriteLine($"\t\t\t\t\tTHE LASTEST DRAW RESULTS ARE ");
+                        Console.WriteLine($"\t\t\t\t{drawresults.ThunderBallResults[0]}\r\n");
                         Console.Write("How many ThunderBall lines do you want? -> ");
                         if (!int.TryParse(Console.ReadLine(), out userNumberOfLines))
                         {
@@ -352,6 +352,8 @@ namespace FortunaPick
                     case 'E':
                         Console.Clear();
                         WelcomeMessage();
+                        Console.WriteLine($"\t\t\t\t\tTHE LASTEST DRAW RESULTS ARE ");
+                        Console.WriteLine($"\t\t\t\t{drawresults.EuroMillionsResults[0]}\r\n");
                         Console.Write("How many EuroMillion lines do you want? -> ");
                         if (!int.TryParse(Console.ReadLine(), out userNumberOfLines))
                         {
@@ -371,6 +373,8 @@ namespace FortunaPick
                     case 'S':
                         Console.Clear();
                         WelcomeMessage();
+                        Console.WriteLine($"\t\t\t\t\tTHE LASTEST DRAW RESULTS ARE ");
+                        Console.WriteLine($"\t\t\t\t{drawresults.SetForLifeResults[0]}\r\n");
                         Console.Write("How many Set for Life lines do you want? > ");
                         if (!int.TryParse(Console.ReadLine(), out userNumberOfLines))
                         {
